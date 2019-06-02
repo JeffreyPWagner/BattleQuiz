@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateQuestion">
+    tools:context=".CreateQuestionActivity">
 
     <EditText
         android:id="@+id/question_text_input"
@@ -36,15 +36,15 @@
         android:id="@+id/choice_1_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_choice_1"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/question_text_input"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/question_text_input"
-        app:layout_constraintTop_toBottomOf="@+id/save_question_but"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/save_question_but" />
 
     <EditText
         android:id="@+id/choice_2_input"
@@ -87,5 +87,51 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/question_text_input"
         app:layout_constraintTop_toBottomOf="@+id/choice_3_input" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="50dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/choice_4_input"
+        app:layout_constraintEnd_toStartOf="@+id/choice_1_input"
+        app:layout_constraintTop_toTopOf="@+id/choice_1_input">
+
+        <RadioButton
+            android:id="@+id/choice_1_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/choice_2_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/choice_3_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/choice_4_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:text="@string/correct_answer"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/save_question_but" />
 
 </android.support.constraint.ConstraintLayout>

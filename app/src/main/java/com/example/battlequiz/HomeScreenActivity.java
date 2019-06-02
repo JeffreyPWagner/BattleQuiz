@@ -2,8 +2,6 @@ package com.example.battlequiz;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,7 +26,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         // instantiate create quiz button and set it to launch the create quiz activity
         createQuizBut = (Button)findViewById(R.id.create_quiz_but);
         createQuizBut.setOnClickListener((View v) -> {
-            Intent createQuizIntent = new Intent(HomeScreenActivity.this, CreateQuiz.class);
+            Intent createQuizIntent = new Intent(HomeScreenActivity.this, CreateQuizActivity.class);
             startActivity(createQuizIntent);
         });
     }

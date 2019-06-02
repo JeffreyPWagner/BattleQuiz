@@ -3,7 +3,7 @@ package com.example.battlequiz;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CreateQuestion extends AppCompatActivity {
+public class CreateQuestionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

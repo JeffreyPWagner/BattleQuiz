@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 public class Quiz {
 
+    private String name = "Quiz";
     private ArrayList<Question> questions;
 
-    public Quiz(ArrayList<Question> questions) {
-        this.questions = questions;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public ArrayList<Question> getQuestions() {

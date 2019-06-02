@@ -6,4 +6,11 @@
     <string name="enter_quiz_name">Enter Quiz Name</string>
     <string name="quiz_name">Quiz Name:</string>
     <string name="add_question">Add Question</string>
+    <string name="finish_quiz">Finish Quiz</string>
+    <string name="enter_question_text">Enter question text</string>
+    <string name="enter_choice_1">Enter choice 1</string>
+    <string name="enter_choice_2">Enter choice 2</string>
+    <string name="save_question">Save Question</string>
+    <string name="enter_choice_3">Enter choice 3</string>
+    <string name="enter_choice_4">Enter choice 4</string>
 </resources>

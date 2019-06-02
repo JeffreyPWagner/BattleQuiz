@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateQuestion">
+
+    <EditText
+        android:id="@+id/question_text_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/enter_question_text"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/save_question_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/save_question"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/question_text_input"
+        app:layout_constraintTop_toBottomOf="@+id/question_text_input" />
+
+    <EditText
+        android:id="@+id/choice_1_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="@string/enter_choice_1"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/question_text_input"
+        app:layout_constraintTop_toBottomOf="@+id/save_question_but"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/choice_2_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_choice_2"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/question_text_input"
+        app:layout_constraintTop_toBottomOf="@+id/choice_1_input" />
+
+    <EditText
+        android:id="@+id/choice_3_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_choice_3"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/question_text_input"
+        app:layout_constraintTop_toBottomOf="@+id/choice_2_input" />
+
+    <EditText
+        android:id="@+id/choice_4_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_choice_4"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/question_text_input"
+        app:layout_constraintTop_toBottomOf="@+id/choice_3_input" />
+
+</android.support.constraint.ConstraintLayout>

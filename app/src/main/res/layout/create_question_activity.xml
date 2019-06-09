@@ -50,7 +50,6 @@
         android:id="@+id/choice_2_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_choice_2"
@@ -89,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/choice_3_input" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/answer_identifier"
         android:layout_width="50dp"
         android:layout_height="212dp"
         android:layout_marginTop="8dp"
@@ -129,9 +128,9 @@
         android:layout_width="60dp"
         android:layout_height="55dp"
         android:text="@string/correct_answer"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/answer_identifier"
         app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/answer_identifier"
         app:layout_constraintTop_toTopOf="@+id/save_question_but" />
 
 </android.support.constraint.ConstraintLayout>

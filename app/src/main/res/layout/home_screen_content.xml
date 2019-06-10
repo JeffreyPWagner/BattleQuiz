@@ -12,16 +12,14 @@
         android:id="@+id/take_quiz_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/take_quiz"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintEnd_toEndOf="@+id/quiz_name_input_home"
+        app:layout_constraintStart_toStartOf="@+id/quiz_name_input_home"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_name_input_home"
+        app:layout_constraintVertical_bias="0.054" />
 
     <Button
         android:id="@+id/create_quiz_but"
@@ -32,4 +30,20 @@
         app:layout_constraintEnd_toEndOf="@+id/take_quiz_but"
         app:layout_constraintStart_toStartOf="@+id/take_quiz_but"
         app:layout_constraintTop_toBottomOf="@+id/take_quiz_but" />
+
+    <EditText
+        android:id="@+id/quiz_name_input_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/enter_quiz_name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
 </android.support.constraint.ConstraintLayout>

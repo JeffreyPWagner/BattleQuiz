@@ -8,11 +8,17 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
     // button to create quiz
     Button createQuizBut;
+
+    // button to take quiz
+    Button takeQuizBut;
+
+    EditText quizNameInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +29,20 @@ public class HomeScreenActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        quizNameInput = findViewById(R.id.quiz_name_input_home);
+
         // instantiate create quiz button and set it to launch the create quiz activity
         createQuizBut = (Button)findViewById(R.id.create_quiz_but);
         createQuizBut.setOnClickListener((View v) -> {
             Intent createQuizIntent = new Intent(HomeScreenActivity.this, CreateQuizActivity.class);
             startActivity(createQuizIntent);
+        });
+
+        // instantiate take quiz button and set it to launch the take quiz activity
+        takeQuizBut = (Button)findViewById(R.id.take_quiz_but);
+        takeQuizBut.setOnClickListener((View v) -> {
+            Intent takeQuizIntent = new Intent(HomeScreenActivity.this, TakeQuizActivity.class);
+            startActivity(takeQuizIntent);
         });
     }
 

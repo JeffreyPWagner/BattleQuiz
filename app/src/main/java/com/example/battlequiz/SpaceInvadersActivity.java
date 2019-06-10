@@ -1,3 +1,5 @@
+// NOTE: All space invaders content was copied from http://gamecodeschool.com/android/coding-a-space-invaders-game/ with the exception of integration tweaks
+
 package com.example.battlequiz;
 
 import android.app.Activity;

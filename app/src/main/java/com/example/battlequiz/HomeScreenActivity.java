@@ -44,6 +44,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             Intent takeQuizIntent = new Intent(HomeScreenActivity.this, TakeQuizActivity.class);
             startActivity(takeQuizIntent);
         });
+
     }
 
     // generated java, may remove menu later

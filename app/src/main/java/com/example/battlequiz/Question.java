@@ -11,6 +11,12 @@ public class Question implements Parcelable {
     private ArrayList<String> choices;
     private int answerIndex;
 
+    public Question() {
+        this.answerIndex = -1;
+        this.choices = null;
+        this.questionText = null;
+    }
+
     public Question(String questionText, String c1, String c2, String c3, String c4, int answerIndex) {
         choices = new ArrayList<>();
         this.questionText = questionText;

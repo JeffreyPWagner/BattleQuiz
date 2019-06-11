@@ -13,13 +13,14 @@ import android.widget.EditText;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CreateQuizActivity extends AppCompatActivity {
 
     public static int QUESTION_RESULT = 0;
 
     // New quiz associated with this activity instance
-    Quiz quiz;
+    private Quiz quiz;
 
     ArrayList<Question> questions;
 
@@ -49,7 +50,15 @@ public class CreateQuizActivity extends AppCompatActivity {
         quizNameInput = findViewById(R.id.quiz_name_input);
 
         finishQuizBut = findViewById(R.id.finish_quiz_but);
-
+        finishQuizBut.setOnClickListener((View v)-> {
+            Intent quizIntent = new Intent();
+            quiz.setQuestions(questions);
+            quiz.setName(quizNameInput.getText().toString());
+            quiz.set_key(UUID.randomUUID().toString());
+            setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
+            HomeScreenActivity.topRef.push().setValue(quiz);
+            finish();
+        });
         questionList = findViewById(R.id.question_list);
 
         // instantiate add question button and set it to launch the create question activity

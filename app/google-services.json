@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "749716094855",
+    "firebase_url": "https://battlequiz-4b3dc.firebaseio.com",
+    "project_id": "battlequiz-4b3dc",
+    "storage_bucket": "battlequiz-4b3dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749716094855:android:19031eb02fc698dc",
+        "android_client_info": {
+          "package_name": "com.example.battlequiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749716094855-gab1p2l4v0p1uo0jh9po7d3ilo7vhoj3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.battlequiz",
+            "certificate_hash": "90e9d0d1bd35f7823e2b3d59c6ab34c9c2d2719f"
+          }
+        },
+        {
+          "client_id": "749716094855-0prveq7c7kcs37pkt4s5u0u1i5ee3j6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbZ6hIeUlbh5jZPfnTsJuwZ0u_cdcoIro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749716094855-0prveq7c7kcs37pkt4s5u0u1i5ee3j6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,11 +1,38 @@
 package com.example.battlequiz;
 
-import java.util.ArrayList;
+import org.parceler.Parcel;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Parcel
 public class Quiz {
 
-    private String name = "Quiz";
-    private ArrayList<Question> questions;
+    private String name;
+    private List<Question> questions;
+
+    private String _key;
+
+    public String get_key() {
+        return _key;
+    }
+
+    public Quiz() {
+        this.name = null;
+        this.questions = null;
+        this._key = null;
+    }
+
+    public Quiz(String name, List<Question> questions, String _key) {
+        this.name = name;
+        this.questions = questions;
+        this._key = _key;
+    }
+
+    public void set_key(String _key) {
+        this._key = _key;
+    }
+
 
     public String getName() {
         return name;
@@ -15,11 +42,11 @@ public class Quiz {
         this.name = name;
     }
 
-    public ArrayList<Question> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }

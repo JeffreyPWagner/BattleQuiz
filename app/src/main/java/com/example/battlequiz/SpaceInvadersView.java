@@ -1,5 +1,6 @@
 package com.example.battlequiz;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -79,7 +80,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
     int score = 0;
 
     // Lives
-    private int lives = 3;
+    private int lives;
+
+    Activity activity;
 
     // How menacing should the sound be?
     private long menaceInterval = 1000;
@@ -90,12 +93,16 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
     // When the we initialize (call new()) on gameView
 // This special constructor method runs
-    public SpaceInvadersView(Context context, int x, int y) {
+    public SpaceInvadersView(Context context, int x, int y, int lives) {
 
         // The next line of code asks the
         // SurfaceView class to set up our object.
         // How kind.
         super(context);
+
+        activity = (Activity)context;
+
+        this.lives = lives;
 
         // Make a globally available copy of the context so we can use it in another method
         this.context = context;
@@ -340,10 +347,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
                         // Has the player won
                         if(score == numInvaders * 10){
-                            paused = true;
-                            score = 0;
-                            lives = 3;
-                            prepareLevel();
+                            activity.finish();
                         }
                     }
                 }
@@ -391,11 +395,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
                     // Is it game over?
                     if(lives == 0){
-                        paused = true;
-                        lives = 3;
-                        score = 0;
-                        prepareLevel();
-
+                        activity.finish();
                     }
                 }
             }

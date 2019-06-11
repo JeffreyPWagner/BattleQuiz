@@ -40,15 +40,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         // instantiate take quiz button and set it to launch the take quiz activity
         takeQuizBut = (Button)findViewById(R.id.take_quiz_but);
-        //listener changed for game testing
-//        takeQuizBut.setOnClickListener((View v) -> {
-//            Intent takeQuizIntent = new Intent(HomeScreenActivity.this, TakeQuizActivity.class);
-//            startActivity(takeQuizIntent);
-//        });
         takeQuizBut.setOnClickListener((View v) -> {
-            Intent takeQuizIntent = new Intent(HomeScreenActivity.this, SpaceInvadersActivity.class);
+            Intent takeQuizIntent = new Intent(HomeScreenActivity.this, TakeQuizActivity.class);
             startActivity(takeQuizIntent);
         });
+
     }
 
     // generated java, may remove menu later

@@ -3,6 +3,7 @@
 package com.example.battlequiz;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
@@ -27,8 +28,11 @@ public class SpaceInvadersActivity extends Activity {
         Point size = new Point();
         display.getSize(size);
 
+        Intent startIntent = getIntent();
+        int gameLives = startIntent.getIntExtra("gameLives",1);
+
         // Initialize gameView and set it as the view
-        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y);
+        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y, gameLives);
         setContentView(spaceInvadersView);
 
     }

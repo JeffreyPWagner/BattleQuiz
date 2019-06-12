@@ -8,4 +8,51 @@
     tools:context=".TakeQuizActivity"
     tools:showIn="@layout/take_quiz_activity">
 
+    <TextView
+        android:id="@+id/question_text_view"
+        android:layout_width="316dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079" />
+
+    <Button
+        android:id="@+id/choice_1_but"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/choice_2_but"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/question_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/question_text_view" />
+
+    <Button
+        android:id="@+id/choice_2_but"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/question_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/question_text_view" />
+
+    <Button
+        android:id="@+id/choice_3_but"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/choice_1_but"
+        app:layout_constraintTop_toBottomOf="@+id/choice_1_but" />
+
+    <Button
+        android:id="@+id/choice_4_but"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/choice_2_but"
+        app:layout_constraintTop_toBottomOf="@+id/choice_2_but" />
 </android.support.constraint.ConstraintLayout>

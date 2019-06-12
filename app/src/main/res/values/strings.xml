@@ -15,4 +15,6 @@
     <string name="enter_choice_4">Enter choice 4</string>
     <string name="correct_answer">Correct Answer</string>
     <string name="title_activity_take_quiz">TakeQuizActivity</string>
+    <string name="title_activity_quiz_complete">QuizCompleteActivity</string>
+    <string name="start_game">Start Game</string>
 </resources>

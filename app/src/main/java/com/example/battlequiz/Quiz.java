@@ -1,12 +1,13 @@
 package com.example.battlequiz;
 
+import android.os.Parcelable;
+
 import org.parceler.Parcel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Parcel
-public class Quiz {
+public class Quiz implements Parcelable {
 
     private String name;
     private List<Question> questions;
@@ -49,4 +50,34 @@ public class Quiz {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(android.os.Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeTypedList(this.questions);
+        dest.writeString(this._key);
+    }
+
+    protected Quiz(android.os.Parcel in) {
+        this.name = in.readString();
+        this.questions = in.createTypedArrayList(Question.CREATOR);
+        this._key = in.readString();
+    }
+
+    public static final Parcelable.Creator<Quiz> CREATOR = new Parcelable.Creator<Quiz>() {
+        @Override
+        public Quiz createFromParcel(android.os.Parcel source) {
+            return new Quiz(source);
+        }
+
+        @Override
+        public Quiz[] newArray(int size) {
+            return new Quiz[size];
+        }
+    };
 }

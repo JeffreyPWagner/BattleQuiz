@@ -1,6 +1,7 @@
 package com.example.battlequiz;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,8 @@ import java.util.UUID;
 
 public class CreateQuizActivity extends AppCompatActivity {
 
-    public static int QUESTION_RESULT = 0;
+    public static int QUESTION_RESULT = 1;
+    public static int EDIT_QUESTION_RESULT = 2;
 
     // New quiz associated with this activity instance
     private Quiz quiz;
@@ -38,6 +40,10 @@ public class CreateQuizActivity extends AppCompatActivity {
     // List of questions
     RecyclerView questionList;
     RecyclerView.Adapter mAdapter;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +100,28 @@ public class CreateQuizActivity extends AppCompatActivity {
         });
 
         questionList.setHasFixedSize(true);
-        questionList    .setLayoutManager(new LinearLayoutManager(this));
+        questionList.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new QuestionAdapter(questions);
         questionList.setAdapter(mAdapter);
+        questionList.addOnItemTouchListener(
+                new RecyclerItemClickListener(null, questionList ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Intent editQuestionIntent = new Intent(CreateQuizActivity.this, CreateQuestionActivity.class);
+                        Question editQuestion = questions.get(position);
+                        Parcelable questionParcel = Parcels.wrap(editQuestion);
+                        editQuestionIntent.putExtra("quiz", questionParcel);
+                        startActivityForResult(editQuestionIntent, EDIT_QUESTION_RESULT);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        Intent editQuestionIntent = new Intent(CreateQuizActivity.this, CreateQuestionActivity.class);
+                        Question editQuestion = questions.get(position);
+                        Parcelable questionParcel = Parcels.wrap(editQuestion);
+                        editQuestionIntent.putExtra("quiz", questionParcel);
+                        startActivityForResult(editQuestionIntent, EDIT_QUESTION_RESULT);
+                    }
+                })
+        );
     }
 
 
@@ -105,6 +130,11 @@ public class CreateQuizActivity extends AppCompatActivity {
         if (resultCode == QUESTION_RESULT) {
             Parcelable questionPar = intent.getParcelableExtra("question");
             questions.add(Parcels.unwrap(questionPar));
+        }
+        else if (resultCode == EDIT_QUESTION_RESULT){
+            Parcelable questionPar = intent.getParcelableExtra("question");
+            Question editedQuestion = Parcels.unwrap(questionPar);
+            questions.set(editedQuestion.getQuestionIndex(),editedQuestion);
         }
     }
 }

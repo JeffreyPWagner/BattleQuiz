@@ -13,6 +13,7 @@ import android.widget.EditText;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class CreateQuizActivity extends AppCompatActivity {
@@ -21,8 +22,9 @@ public class CreateQuizActivity extends AppCompatActivity {
 
     // New quiz associated with this activity instance
     private Quiz quiz;
+    Quiz editQuiz;
 
-    ArrayList<Question> questions;
+    List<Question> questions;
 
     // Input for quiz name
     EditText quizNameInput;
@@ -43,23 +45,41 @@ public class CreateQuizActivity extends AppCompatActivity {
         setContentView(R.layout.create_quiz_activity);
 
         // Create a new quiz when activity launches
-        quiz = new Quiz();
-
-        questions = new ArrayList<Question>();
-
+        questionList = findViewById(R.id.question_list);
         quizNameInput = findViewById(R.id.quiz_name_input);
+
+
+
+        Intent editQuizIntent = getIntent();
+        Parcelable quizPar = editQuizIntent.getParcelableExtra("quiz");
+        editQuiz = Parcels.unwrap(quizPar);
+
+        if(editQuiz != null){
+            quiz = editQuiz;
+            questions = quiz.getQuestions();
+            quizNameInput.setText(quiz.getName());
+
+        }
+        else {
+
+            quiz = new Quiz();
+
+            questions = new ArrayList<Question>();
+
+
+        }
+
+
 
         finishQuizBut = findViewById(R.id.finish_quiz_but);
         finishQuizBut.setOnClickListener((View v)-> {
             Intent quizIntent = new Intent();
             quiz.setQuestions(questions);
             quiz.setName(quizNameInput.getText().toString());
-            quiz.set_key(UUID.randomUUID().toString());
             setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
             HomeScreenActivity.topRef.push().setValue(quiz);
             finish();
         });
-        questionList = findViewById(R.id.question_list);
 
         // instantiate add question button and set it to launch the create question activity
         // the create question activity will return a new question to add to the quiz

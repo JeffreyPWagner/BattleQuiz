@@ -3,6 +3,8 @@ package com.example.battlequiz;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +35,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     // button to take quiz
     Button takeQuizBut;
+    Button editQuizBut;
 
     EditText quizNameInput;
 
@@ -78,7 +82,25 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
+        editQuizBut = (Button) findViewById(R.id.edit_quiz_but);
+        editQuizBut.setOnClickListener((View v) ->{
+            String quizName = quizNameInput.getText().toString();
+            if( quizMap.containsKey(quizName) ){
+                Quiz quiz = allQuizzes.get(quizMap.get(quizName));
+                Intent editQuizIntent = new Intent(HomeScreenActivity.this, CreateQuizActivity.class);
+                Parcelable quizParcel = Parcels.wrap(quiz);
+                editQuizIntent.putExtra("quiz", quizParcel);
+                topRef.child(quiz.get_key()).removeValue();
+                quizMap.remove(quizMap.get(quizName));
+                startActivity(editQuizIntent);
+            }
+            else{
+                quizNameInput.setText("");
+                //Also display invalid quiz name in toolbar
+            }
+        });
     }
+
 
     @Override
     public void onResume(){
@@ -102,6 +124,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             allQuizzes.clear(); //This could be changed to add the last item
             for (DataSnapshot child: children) {
                 Quiz tempQuiz = child.getValue(Quiz.class);
+                tempQuiz.set_key(child.getKey());
                 allQuizzes.add(tempQuiz);
                 quizMap.put(tempQuiz.getName(),i);
                 i++;

@@ -91,7 +91,6 @@ public class HomeScreenActivity extends AppCompatActivity {
                 Parcelable quizParcel = Parcels.wrap(quiz);
                 editQuizIntent.putExtra("quiz", quizParcel);
                 topRef.child(quiz.get_key()).removeValue();
-                quizMap.remove(quizMap.get(quizName));
                 startActivity(editQuizIntent);
             }
             else{

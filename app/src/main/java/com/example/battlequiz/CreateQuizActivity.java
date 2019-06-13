@@ -54,18 +54,17 @@ public class CreateQuizActivity extends AppCompatActivity {
         Parcelable quizPar = editQuizIntent.getParcelableExtra("quiz");
         editQuiz = Parcels.unwrap(quizPar);
 
+        quiz = new Quiz();
+
+        questions = new ArrayList<Question>();
+
+
         if(editQuiz != null){
             quiz = editQuiz;
-            questions = quiz.getQuestions();
+            if(quiz.getQuestions() != null){
+                questions = quiz.getQuestions();
+            }
             quizNameInput.setText(quiz.getName());
-
-        }
-        else {
-
-            quiz = new Quiz();
-
-            questions = new ArrayList<Question>();
-
 
         }
 
@@ -77,7 +76,12 @@ public class CreateQuizActivity extends AppCompatActivity {
             quiz.setQuestions(questions);
             quiz.setName(quizNameInput.getText().toString());
             setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
-            HomeScreenActivity.topRef.push().setValue(quiz);
+            if (quiz.get_key() == null){
+                HomeScreenActivity.topRef.push().setValue(quiz);
+            }
+            else {
+                HomeScreenActivity.topRef.child(quiz.get_key()).setValue(quiz);
+            }
             finish();
         });
 
@@ -90,7 +94,7 @@ public class CreateQuizActivity extends AppCompatActivity {
         });
 
         questionList.setHasFixedSize(true);
-        questionList.setLayoutManager(new LinearLayoutManager(this));
+        questionList    .setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new QuestionAdapter(questions);
         questionList.setAdapter(mAdapter);
     }

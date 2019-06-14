@@ -4,6 +4,7 @@ import android.os.Parcelable;
 
 import org.parceler.Parcel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Parcel
@@ -11,6 +12,12 @@ public class Quiz implements Parcelable {
 
     private String name;
     private List<Question> questions;
+
+    public List<String> getHighScores() {
+        return highScores;
+    }
+
+    private List<String> highScores;
 
     private String _key;
 
@@ -22,12 +29,14 @@ public class Quiz implements Parcelable {
         this.name = null;
         this.questions = null;
         this._key = null;
+        this.highScores = new ArrayList<>();
     }
 
-    public Quiz(String name, List<Question> questions, String _key) {
+    public Quiz(String name, List<Question> questions, String _key, List<String> highScores) {
         this.name = name;
         this.questions = questions;
         this._key = _key;
+        this.highScores = new ArrayList<>();
     }
 
     public void set_key(String _key) {
@@ -51,6 +60,12 @@ public class Quiz implements Parcelable {
         this.questions = questions;
     }
 
+    public void addHighscore(String name, int score) {
+        highScores.add(score +" "+ name);
+    }
+
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -60,16 +75,18 @@ public class Quiz implements Parcelable {
     public void writeToParcel(android.os.Parcel dest, int flags) {
         dest.writeString(this.name);
         dest.writeTypedList(this.questions);
+        dest.writeStringList(this.highScores);
         dest.writeString(this._key);
     }
 
     protected Quiz(android.os.Parcel in) {
         this.name = in.readString();
         this.questions = in.createTypedArrayList(Question.CREATOR);
+        this.highScores = in.createStringArrayList();
         this._key = in.readString();
     }
 
-    public static final Parcelable.Creator<Quiz> CREATOR = new Parcelable.Creator<Quiz>() {
+    public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {
         @Override
         public Quiz createFromParcel(android.os.Parcel source) {
             return new Quiz(source);

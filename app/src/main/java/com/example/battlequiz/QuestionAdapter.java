@@ -6,13 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questionViewHolder> {
 
     private List<Question> mQuestions;
 
@@ -22,15 +20,15 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public questionViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View questionView = inflater.inflate(R.layout.question_list_item, viewGroup, false);
-        return new ViewHolder(questionView);
+        return new questionViewHolder(questionView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QuestionAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull questionViewHolder viewHolder, int position) {
         if (mQuestions != null && mQuestions.size() != 0) {
             viewHolder.mQuestion = mQuestions.get(position);
             viewHolder.questionText.setText(viewHolder.mQuestion.getQuestionText());
@@ -47,12 +45,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class questionViewHolder extends RecyclerView.ViewHolder {
 
         public TextView questionText;
         public Question mQuestion;
 
-        public ViewHolder(View itemView) {
+        public questionViewHolder(View itemView) {
             super(itemView);
             questionText = itemView.findViewById(R.id.question_text);
         }

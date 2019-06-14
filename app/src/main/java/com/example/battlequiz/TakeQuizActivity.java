@@ -120,7 +120,10 @@ public class TakeQuizActivity extends AppCompatActivity {
         Intent completeQuizIntent = new Intent(TakeQuizActivity.this, QuizCompleteActivity.class);
         completeQuizIntent.putExtra("score", score);
         completeQuizIntent.putExtra("numQuestions", numQuestions);
+        Parcelable quizParcel = Parcels.wrap(quiz);
+        completeQuizIntent.putExtra("quiz", quizParcel);
         startActivity(completeQuizIntent);
+        finish();
     }
 
 }

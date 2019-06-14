@@ -10,14 +10,16 @@ public class Question implements Parcelable {
     private String questionText;
     private ArrayList<String> choices;
     private int answerIndex;
+    private int questionIndex;
 
     public Question() {
         this.answerIndex = -1;
         this.choices = null;
         this.questionText = null;
+        this.questionIndex = -1;
     }
 
-    public Question(String questionText, String c1, String c2, String c3, String c4, int answerIndex) {
+    public Question(String questionText, String c1, String c2, String c3, String c4, int answerIndex, int questionIndex) {
         choices = new ArrayList<>();
         this.questionText = questionText;
         choices.add(c1);
@@ -25,6 +27,7 @@ public class Question implements Parcelable {
         choices.add(c3);
         choices.add(c4);
         this.answerIndex = answerIndex;
+        this.questionIndex = questionIndex;
     }
 
     public String getQuestionText() {
@@ -80,4 +83,12 @@ public class Question implements Parcelable {
             return new Question[size];
         }
     };
+
+    public int getQuestionIndex() {
+        return questionIndex;
+    }
+
+    public void setQuestionIndex(int questionIndex) {
+        this.questionIndex = questionIndex;
+    }
 }

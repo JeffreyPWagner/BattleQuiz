@@ -2,6 +2,7 @@ package com.example.battlequiz;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -10,10 +11,13 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
 
@@ -79,6 +83,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
     // The score
     int score = 0;
 
+    Quiz quiz;
+
     // Lives
     private int lives;
 
@@ -93,14 +99,16 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
     // When the we initialize (call new()) on gameView
 // This special constructor method runs
-    public SpaceInvadersView(Context context, int x, int y, int lives) {
+    public SpaceInvadersView(Context context, int x, int y, int lives, Quiz quiz) {
 
         // The next line of code asks the
         // SurfaceView class to set up our object.
         // How kind.
         super(context);
 
-        activity = (Activity)context;
+        activity = (Activity) context;
+
+        this.quiz = quiz;
 
         this.lives = lives;
 
@@ -347,6 +355,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
                         // Has the player won
                         if(score == numInvaders * 10){
+                            Intent postGameIntent = new Intent(activity, PostGameActivity.class);
+                            postGameIntent.putExtra("score", score);
+                            Parcelable quizParcel = Parcels.wrap(quiz);
+                            postGameIntent.putExtra("quiz", quizParcel);
+                            activity.startActivity(postGameIntent);
                             activity.finish();
                         }
                     }
@@ -395,6 +408,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
                     // Is it game over?
                     if(lives == 0){
+                        Intent postGameIntent = new Intent(activity, PostGameActivity.class);
+                        postGameIntent.putExtra("score", score);
+                        Parcelable quizParcel = Parcels.wrap(quiz);
+                        postGameIntent.putExtra("quiz", quizParcel);
+                        activity.startActivity(postGameIntent);
                         activity.finish();
                     }
                 }

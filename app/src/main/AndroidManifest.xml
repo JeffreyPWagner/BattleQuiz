@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LeaderBoardActivity"></activity>
+        <activity
+            android:name=".PostGameActivity"
+            android:label="@string/title_activity_post_quiz"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QuizCompleteActivity"
             android:label="@string/title_activity_quiz_complete"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SpaceInvadersActivity"
             android:screenOrientation="landscape"

@@ -6,7 +6,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Display;
+
+import org.parceler.Parcels;
 
 // SpaceInvadersActivity is the entry point to the game.
 // It will handle the lifecycle of the game by calling
@@ -17,6 +20,8 @@ public class SpaceInvadersActivity extends Activity {
     // It will also hold the logic of the game
     // and respond to screen touches as well
     SpaceInvadersView spaceInvadersView;
+
+    Quiz quiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +35,11 @@ public class SpaceInvadersActivity extends Activity {
 
         Intent startIntent = getIntent();
         int gameLives = startIntent.getIntExtra("gameLives",1);
+        Parcelable quizPar = startIntent.getParcelableExtra("quiz");
+        quiz = Parcels.unwrap(quizPar);
 
         // Initialize gameView and set it as the view
-        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y, gameLives);
+        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y, gameLives, quiz);
         setContentView(spaceInvadersView);
 
     }

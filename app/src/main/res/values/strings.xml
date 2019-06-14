@@ -18,4 +18,9 @@
     <string name="title_activity_quiz_complete">QuizCompleteActivity</string>
     <string name="start_game">Start Game</string>
     <string name="edit_quiz">Edit Quiz</string>
+    <string name="title_activity_post_quiz">PostQuizActivity</string>
+    <string name="save_score">Save Score</string>
+    <string name="enter_name">Enter name</string>
+    <string name="score">Score:</string>
+    <string name="leaderboard">Leaderboard</string>
 </resources>

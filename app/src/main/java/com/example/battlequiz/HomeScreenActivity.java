@@ -1,6 +1,7 @@
 package com.example.battlequiz;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -27,6 +28,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+
 public class HomeScreenActivity extends AppCompatActivity {
 
     // button to create quiz
@@ -43,6 +48,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     List<Quiz> allQuizzes = new ArrayList<Quiz>();;
     HashMap<String, Integer> quizMap = new HashMap<>();
 
+    Twitter twitter = TwitterFactory.getSingleton();
 
 
     @Override
@@ -68,6 +74,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         // instantiate take quiz button and set it to launch the take quiz activity
         takeQuizBut = (Button)findViewById(R.id.take_quiz_but);
         takeQuizBut.setOnClickListener((View v) -> {
+
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, from tutorialspoint");
+            startActivity(Intent.createChooser(shareIntent, "Share your thoughts"));
+
             String quizName = quizNameInput.getText().toString();
             if( quizMap.containsKey(quizName) ){
                 Quiz quiz = allQuizzes.get(quizMap.get(quizName));

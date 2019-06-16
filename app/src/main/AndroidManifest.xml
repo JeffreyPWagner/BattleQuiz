@@ -11,30 +11,35 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SignUpActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".HomeScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.battlequiz.HomeScreenActivity" />
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_login"
             android:parentActivityName=".HomeScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.battlequiz.HomeScreenActivity" />
         </activity>
-        <activity android:name=".LeaderBoardActivity" />
+        <activity android:name=".LeaderBoardActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PostGameActivity"
             android:label="@string/title_activity_post_quiz"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".QuizCompleteActivity"
             android:label="@string/title_activity_quiz_complete"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".SpaceInvadersActivity"
@@ -42,13 +47,17 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".TakeQuizActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_take_quiz"
             android:theme="@style/AppTheme" />
-        <activity android:name=".CreateQuestionActivity" />
-        <activity android:name=".CreateQuizActivity" />
+        <activity android:name=".CreateQuestionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateQuizActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HomeScreenActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

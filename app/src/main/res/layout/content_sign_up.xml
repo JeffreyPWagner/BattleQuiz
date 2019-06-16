@@ -19,7 +19,8 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email_et" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_email_et"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/password_verify_et"
@@ -32,7 +33,8 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_password_et" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_password_et"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/signup_email_et"
@@ -41,18 +43,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        android:hint="@string/enter_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/signup_email_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email"
         app:layout_constraintBottom_toTopOf="@+id/signup_email_et"
         app:layout_constraintEnd_toEndOf="@+id/signup_email_et"
         app:layout_constraintStart_toStartOf="@+id/signup_email_et" />
@@ -61,7 +65,8 @@
         android:id="@+id/signup_password_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
+
         app:layout_constraintBottom_toTopOf="@+id/signup_password_et"
         app:layout_constraintEnd_toEndOf="@+id/signup_password_et"
         app:layout_constraintStart_toStartOf="@+id/signup_password_et" />
@@ -71,7 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Verify Password"
+        android:text="@string/verify_password"
+
         app:layout_constraintBottom_toTopOf="@+id/password_verify_et"
         app:layout_constraintEnd_toEndOf="@+id/password_verify_et"
         app:layout_constraintStart_toStartOf="@+id/password_verify_et" />
@@ -83,7 +89,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_verify_et" />

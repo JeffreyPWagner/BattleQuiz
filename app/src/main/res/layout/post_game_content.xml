@@ -12,34 +12,33 @@
         android:id="@+id/leadboard_post_game"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_input" />
+        app:layout_constraintTop_toBottomOf="@+id/share_score_but"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/save_score_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/save_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/name_input"
-        app:layout_constraintTop_toTopOf="@+id/name_input" />
+        app:layout_constraintStart_toStartOf="@+id/name_input"
+        app:layout_constraintTop_toBottomOf="@+id/name_input" />
 
     <EditText
         android:id="@+id/name_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="284dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
+        android:gravity="center"
         android:hint="@string/enter_name"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/score_view" />
 
@@ -49,6 +48,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:layout_marginEnd="8dp"
         android:text="@string/score"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +60,8 @@
         android:id="@+id/score_view"
         android:layout_width="139dp"
         android:layout_height="82dp"
+        android:gravity="center"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/score_label"
         app:layout_constraintStart_toStartOf="@+id/score_label"
         app:layout_constraintTop_toBottomOf="@+id/score_label" />
@@ -68,9 +70,10 @@
         android:id="@+id/share_score_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Share score"
-        app:layout_constraintEnd_toEndOf="@+id/save_score_but"
-        app:layout_constraintStart_toStartOf="@+id/save_score_but"
-        app:layout_constraintTop_toBottomOf="@+id/save_score_but" />
+        android:layout_marginStart="8dp"
+        android:text="@string/share_score"
+        app:layout_constraintEnd_toEndOf="@+id/name_input"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/save_score_but"
+        app:layout_constraintTop_toTopOf="@+id/save_score_but" />
 </android.support.constraint.ConstraintLayout>

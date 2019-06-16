@@ -6,8 +6,12 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,11 +46,17 @@ public class HomeScreenActivity extends AppCompatActivity {
     Button signUpBut;
     Button signOutBut;
 
+    TextView yourQuizzesLabel;
+
     EditText quizNameInput;
+
+    Spinner quizSpinner;
+    ArrayAdapter<String> spinnerAdapter;
 
     public static DatabaseReference topRef;
     List<Quiz> allQuizzes = new ArrayList<Quiz>();;
     HashMap<String, Integer> quizMap = new HashMap<>();
+    List<String> userQuizNames;
 
     public static FirebaseAuth mAuth;
     public static FirebaseUser currentUser = null;
@@ -60,6 +70,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.home_screen_activity);
 
         mAuth = FirebaseAuth.getInstance();
+
+        userQuizNames = new ArrayList<>();
+        yourQuizzesLabel = findViewById(R.id.your_quizzes_label);
+
+        quizSpinner = findViewById(R.id.quiz_spinner);
 
 
 
@@ -152,6 +167,22 @@ public class HomeScreenActivity extends AppCompatActivity {
                 //Also display invalid quiz name in toolbar
             }
         });
+
+        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, userQuizNames);
+        quizSpinner.setAdapter(spinnerAdapter);
+        quizSpinner.setSelected(false);
+        quizSpinner.setSelection(0,true);
+        quizSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                quizNameInput.setText(adapterView.getItemAtPosition(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
@@ -177,8 +208,11 @@ public class HomeScreenActivity extends AppCompatActivity {
             signOutBut.setVisibility(View.VISIBLE);
             editQuizBut.setVisibility(View.VISIBLE);
             createQuizBut.setVisibility(View.VISIBLE);
+            quizSpinner.setVisibility(View.VISIBLE);
+            yourQuizzesLabel.setVisibility(View.VISIBLE);
             userID = currentUser.getUid();
             //Logout Button Visable
+
         }
         else {
             loginBut.setVisibility(View.VISIBLE);
@@ -186,6 +220,8 @@ public class HomeScreenActivity extends AppCompatActivity {
             editQuizBut.setVisibility(View.INVISIBLE);
             createQuizBut.setVisibility(View.INVISIBLE);
             signOutBut.setVisibility(View.INVISIBLE);
+            quizSpinner.setVisibility(View.INVISIBLE);
+            yourQuizzesLabel.setVisibility(View.INVISIBLE);
             userID = null;
             //log out button invisable
         }
@@ -206,13 +242,18 @@ public class HomeScreenActivity extends AppCompatActivity {
             Iterable<DataSnapshot> children = dataSnapshot.getChildren();
             int i = 0;
             allQuizzes.clear(); //This could be changed to add the last item
+            userQuizNames.clear();
             for (DataSnapshot child: children) {
                 Quiz tempQuiz = child.getValue(Quiz.class);
                 tempQuiz.set_key(child.getKey());
                 allQuizzes.add(tempQuiz);
                 quizMap.put(tempQuiz.getName(),i);
+                if (tempQuiz.getUserID() != null && tempQuiz.getUserID().equals(userID)) {
+                    userQuizNames.add(tempQuiz.getName());
+                }
                 i++;
             }
+            spinnerAdapter.notifyDataSetChanged();
             Log.d("Val Event Listener","complete");
         }
 
@@ -221,4 +262,5 @@ public class HomeScreenActivity extends AppCompatActivity {
             System.out.println("The read failed: " + databaseError.getCode());
         }
     };
+
 }

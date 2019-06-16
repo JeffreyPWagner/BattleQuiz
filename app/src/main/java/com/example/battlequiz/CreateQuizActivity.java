@@ -1,7 +1,6 @@
 package com.example.battlequiz;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class CreateQuizActivity extends AppCompatActivity {
 
@@ -131,11 +129,13 @@ public class CreateQuizActivity extends AppCompatActivity {
         if (resultCode == QUESTION_RESULT) {
             Parcelable questionPar = intent.getParcelableExtra("question");
             questions.add(Parcels.unwrap(questionPar));
+            mAdapter.notifyDataSetChanged();
         }
         else if (resultCode == EDIT_QUESTION_RESULT){
             Parcelable questionPar = intent.getParcelableExtra("question");
             Question editedQuestion = Parcels.unwrap(questionPar);
             questions.set(editedQuestion.getQuestionIndex(),editedQuestion);
+            mAdapter.notifyDataSetChanged();
         }
     }
 }

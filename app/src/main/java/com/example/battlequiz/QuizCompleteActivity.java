@@ -36,9 +36,11 @@ public class QuizCompleteActivity extends AppCompatActivity {
 
         quizScore.setText("Score: " + score + "/" + numQuestions);
 
+        int gameLives = (int)((long)score * 5 / (long)numQuestions);
+
         startGameBut.setOnClickListener((View v) -> {
             Intent startGameIntent = new Intent(QuizCompleteActivity.this, SpaceInvadersActivity.class);
-            startGameIntent.putExtra("gameLives", score);
+            startGameIntent.putExtra("gameLives", gameLives);
             Parcelable quizParcel = Parcels.wrap(quiz);
             startGameIntent.putExtra("quiz", quizParcel);
             startActivity(startGameIntent);

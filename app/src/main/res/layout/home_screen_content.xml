@@ -10,63 +10,55 @@
 
     <Button
         android:id="@+id/take_quiz_but"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/take_quiz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/quiz_name_input_home"
         app:layout_constraintTop_toBottomOf="@+id/quiz_name_input_home" />
 
     <Button
         android:id="@+id/create_quiz_but"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/create_quiz"
         app:layout_constraintEnd_toEndOf="@+id/quiz_name_input_home"
-        app:layout_constraintTop_toBottomOf="@+id/edit_quiz_but" />
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_but" />
 
     <EditText
         android:id="@+id/quiz_name_input_home"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
         android:autofillHints=""
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="@string/enter_quiz_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/edit_quiz_but"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/edit_quiz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/take_quiz_but" />
+        app:layout_constraintStart_toStartOf="@+id/quiz_name_input_home"
+        app:layout_constraintTop_toBottomOf="@+id/take_quiz_but" />
 
     <Button
         android:id="@+id/leaderboard_but"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:text="@string/leaderboard"
-        app:layout_constraintEnd_toStartOf="@+id/create_quiz_but"
-        app:layout_constraintStart_toStartOf="@+id/quiz_name_input_home"
-        app:layout_constraintTop_toBottomOf="@+id/take_quiz_but" />
+        app:layout_constraintEnd_toEndOf="@+id/quiz_name_input_home"
+        app:layout_constraintTop_toTopOf="@+id/take_quiz_but" />
 
     <Button
         android:id="@+id/homescreen_login_but"
@@ -75,7 +67,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -87,7 +79,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toTopOf="@+id/homescreen_login_but"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -99,9 +91,34 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Sign Out"
+        android:text="@string/sign_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/quiz_spinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_quizzes_label" />
+
+    <TextView
+        android:id="@+id/your_quizzes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/your_quizzes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_quiz_but" />
 
 </android.support.constraint.ConstraintLayout>

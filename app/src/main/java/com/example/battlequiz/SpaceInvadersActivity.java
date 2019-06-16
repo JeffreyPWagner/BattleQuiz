@@ -38,6 +38,7 @@ public class SpaceInvadersActivity extends Activity {
         if(gameLives == 0){
             gameLives = 1;
         }
+
         Parcelable quizPar = startIntent.getParcelableExtra("quiz");
         quiz = Parcels.unwrap(quizPar);
 

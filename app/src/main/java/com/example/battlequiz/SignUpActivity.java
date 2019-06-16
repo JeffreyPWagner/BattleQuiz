@@ -43,29 +43,30 @@ public class SignUpActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
             else {
+                if (!(email.equals("") || password.equals("") || verifyPassword.equals(""))) {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d("SIGNUP", "createUserWithEmail:success");
+                                        HomeScreenActivity.currentUser = mAuth.getCurrentUser();
+                                        HomeScreenActivity.userID = currentUser.getUid();
+                                        //updateUI(user);
+                                        finish();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w("SIGNUP", "createUserWithEmail:failure", task.getException());
+                                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                        //updateUI(null);
+                                    }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d("SIGNUP", "createUserWithEmail:success");
-                                    HomeScreenActivity.currentUser = mAuth.getCurrentUser();
-                                    HomeScreenActivity.userID = currentUser.getUid();
-                                    //updateUI(user);
-                                    finish();
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Log.w("SIGNUP", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                    //updateUI(null);
+                                    // ...
                                 }
-
-                                // ...
-                            }
-                        });
+                            });
+                }
             }
         });
     }

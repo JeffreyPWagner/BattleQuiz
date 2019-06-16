@@ -40,29 +40,31 @@ public class LoginActivity extends AppCompatActivity {
             String email = emailEditText.getText().toString();
             String password = passwordEditText.getText().toString();
 
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("Sign", "signInWithEmail:success");
-                                HomeScreenActivity.currentUser = mAuth.getCurrentUser();
-                                HomeScreenActivity.userID = currentUser.getUid();
-                                finish();
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("Sing", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                                emailEditText.setText("");
-                                passwordEditText.setText("");
-                                //updateUI(null);
-                            }
+            if (!(email.equals("") || password.equals(""))) {
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d("Sign", "signInWithEmail:success");
+                                    HomeScreenActivity.currentUser = mAuth.getCurrentUser();
+                                    HomeScreenActivity.userID = currentUser.getUid();
+                                    finish();
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w("Sing", "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                    emailEditText.setText("");
+                                    passwordEditText.setText("");
+                                    //updateUI(null);
+                                }
 
-                            // ...
-                        }
-                    });
+                                // ...
+                            }
+                        });
+            }
         });
     }
 

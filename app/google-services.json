@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "749716094855-obj948h5g3o999m9s7t880v8pata94q6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.battlequiz",
+            "certificate_hash": "06632f7477eb36a452aabd2c1560d81e4fd88c53"
+          }
+        },
+        {
           "client_id": "749716094855-gab1p2l4v0p1uo0jh9po7d3ilo7vhoj3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

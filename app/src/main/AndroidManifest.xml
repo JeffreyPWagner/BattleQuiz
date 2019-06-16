@@ -13,11 +13,11 @@
         <activity
             android:name=".PostGameActivity"
             android:label="@string/title_activity_post_quiz"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".QuizCompleteActivity"
             android:label="@string/title_activity_quiz_complete"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SpaceInvadersActivity"
             android:screenOrientation="landscape"
@@ -25,13 +25,13 @@
         <activity
             android:name=".TakeQuizActivity"
             android:label="@string/title_activity_take_quiz"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".CreateQuestionActivity" />
         <activity android:name=".CreateQuizActivity" />
         <activity
             android:name=".HomeScreenActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

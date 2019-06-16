@@ -8,41 +8,24 @@
 
     <EditText
         android:id="@+id/quiz_name_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="92dp"
         android:autofillHints=""
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="@string/enter_quiz_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toEndOf="@+id/quiz_name_label"
-        app:layout_constraintTop_toTopOf="@+id/quiz_name_label" />
-
-    <TextView
-        android:id="@+id/quiz_name_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/quiz_name"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/question_list"
         android:layout_width="405dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,16 +34,16 @@
 
     <Button
         android:id="@+id/add_question_button"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:text="@string/add_question"
-        app:layout_constraintStart_toStartOf="@+id/quiz_name_label"
-        app:layout_constraintTop_toBottomOf="@+id/quiz_name_label" />
+        app:layout_constraintStart_toStartOf="@+id/quiz_name_input"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_name_input" />
 
     <Button
         android:id="@+id/finish_quiz_but"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/finish_quiz"
         app:layout_constraintEnd_toEndOf="@+id/quiz_name_input"

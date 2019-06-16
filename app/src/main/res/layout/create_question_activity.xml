@@ -25,18 +25,23 @@
         android:id="@+id/save_question_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/save_question"
-        app:layout_constraintEnd_toEndOf="@+id/question_text_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/question_text_input"
-        app:layout_constraintTop_toBottomOf="@+id/question_text_input" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choice_4_input"
+        app:layout_constraintVertical_bias="0.1" />
 
     <EditText
         android:id="@+id/choice_1_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="76dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_choice_1"
@@ -44,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="@+id/question_text_input"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/question_text_input"
-        app:layout_constraintTop_toBottomOf="@+id/save_question_but" />
+        app:layout_constraintTop_toBottomOf="@+id/question_text_input" />
 
     <EditText
         android:id="@+id/choice_2_input"
@@ -125,12 +130,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
+        android:layout_width="63dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/correct_answer"
+        app:layout_constraintBottom_toTopOf="@+id/answer_identifier"
         app:layout_constraintEnd_toEndOf="@+id/answer_identifier"
         app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="@+id/answer_identifier"
-        app:layout_constraintTop_toTopOf="@+id/save_question_but" />
+        app:layout_constraintStart_toStartOf="@+id/answer_identifier" />
 
 </android.support.constraint.ConstraintLayout>

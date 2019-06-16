@@ -12,7 +12,7 @@
         android:id="@+id/leadboard_post_game"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -63,4 +63,14 @@
         app:layout_constraintEnd_toEndOf="@+id/score_label"
         app:layout_constraintStart_toStartOf="@+id/score_label"
         app:layout_constraintTop_toBottomOf="@+id/score_label" />
+
+    <Button
+        android:id="@+id/share_score_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Share score"
+        app:layout_constraintEnd_toEndOf="@+id/save_score_but"
+        app:layout_constraintStart_toStartOf="@+id/save_score_but"
+        app:layout_constraintTop_toBottomOf="@+id/save_score_but" />
 </android.support.constraint.ConstraintLayout>

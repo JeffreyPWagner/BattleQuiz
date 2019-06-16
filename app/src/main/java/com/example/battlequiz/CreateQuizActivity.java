@@ -81,6 +81,7 @@ public class CreateQuizActivity extends AppCompatActivity {
             Intent quizIntent = new Intent();
             quiz.setQuestions(questions);
             quiz.setName(quizNameInput.getText().toString());
+            quiz.setUserID(HomeScreenActivity.userID);
             setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
             if (quiz.get_key() == null){
                 HomeScreenActivity.topRef.push().setValue(quiz);

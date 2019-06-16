@@ -1,14 +1,10 @@
 package com.example.battlequiz;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 
@@ -62,6 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.home_screen_activity);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -83,6 +79,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             Intent signUpIntent = new Intent(HomeScreenActivity.this, SignUpActivity.class);
             startActivity(signUpIntent);
         });
+
 
         quizNameInput = findViewById(R.id.quiz_name_input_home);
 
@@ -227,27 +224,4 @@ public class HomeScreenActivity extends AppCompatActivity {
             System.out.println("The read failed: " + databaseError.getCode());
         }
     };
-    // generated java, may remove menu later
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    // generated java, may remove menu later
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

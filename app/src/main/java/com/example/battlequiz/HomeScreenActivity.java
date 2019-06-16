@@ -61,10 +61,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        // generated java, may remove menu later
-        setContentView(R.layout.home_screen_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         signOutBut = findViewById(R.id.signout_but);
         signOutBut.setOnClickListener((View v)->{

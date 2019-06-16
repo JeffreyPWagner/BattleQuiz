@@ -25,6 +25,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         quiz = Parcels.unwrap(quizPar);
 
 
+
         leaderboard = findViewById(R.id.leader_board);
 
         leaderboard.setHasFixedSize(true);

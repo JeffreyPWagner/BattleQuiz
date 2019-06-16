@@ -23,6 +23,7 @@ public class PostGameActivity extends AppCompatActivity {
     Quiz quiz;
     TextView scoreView;
     Button saveScoreBut;
+    Button shareScoreBut;
     RecyclerView leaderboard;
     RecyclerView.Adapter mAdapter;
 
@@ -40,6 +41,17 @@ public class PostGameActivity extends AppCompatActivity {
             quiz.addHighscore(nameInput.getText().toString(),score);
             HomeScreenActivity.topRef.child(quiz.get_key()).setValue(quiz);
             finish();
+        });
+
+        shareScoreBut = findViewById(R.id.share_score_but);
+        shareScoreBut.setOnClickListener((View v)->{
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "I scored " + Integer.toString(score) + " on the " + quiz.getName() + " quiz!");
+            startActivity(Intent.createChooser(shareIntent, "Share your Score"));
+
         });
 
         scoreView = findViewById(R.id.score_view);

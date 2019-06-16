@@ -21,6 +21,16 @@ public class Quiz implements Parcelable {
 
     private String _key;
 
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    private String userID;
+
     public String get_key() {
         return _key;
     }
@@ -30,13 +40,15 @@ public class Quiz implements Parcelable {
         this.questions = null;
         this._key = null;
         this.highScores = new ArrayList<>();
+        this.userID = null;
     }
 
-    public Quiz(String name, List<Question> questions, String _key, List<String> highScores) {
+    public Quiz(String name, List<Question> questions, String _key, List<String> highScores, String userID) {
         this.name = name;
         this.questions = questions;
         this._key = _key;
         this.highScores = new ArrayList<>();
+        this.userID = userID;
     }
 
     public void set_key(String _key) {
@@ -77,6 +89,7 @@ public class Quiz implements Parcelable {
         dest.writeTypedList(this.questions);
         dest.writeStringList(this.highScores);
         dest.writeString(this._key);
+        dest.writeString(this.userID);
     }
 
     protected Quiz(android.os.Parcel in) {
@@ -84,6 +97,7 @@ public class Quiz implements Parcelable {
         this.questions = in.createTypedArrayList(Question.CREATOR);
         this.highScores = in.createStringArrayList();
         this._key = in.readString();
+        this.userID = in.readString();
     }
 
     public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {

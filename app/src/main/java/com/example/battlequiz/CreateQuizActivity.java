@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.parceler.Parcels;
 
@@ -76,18 +77,29 @@ public class CreateQuizActivity extends AppCompatActivity {
 
         finishQuizBut = findViewById(R.id.finish_quiz_but);
         finishQuizBut.setOnClickListener((View v)-> {
-            Intent quizIntent = new Intent();
-            quiz.setQuestions(questions);
-            quiz.setName(quizNameInput.getText().toString());
-            quiz.setUserID(HomeScreenActivity.userID);
-            setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
-            if (quiz.get_key() == null){
-                HomeScreenActivity.topRef.push().setValue(quiz);
+
+            if(questions.size() == 0){
+                Toast.makeText(CreateQuizActivity.this, "You cannot make a quiz with no questions.",
+                        Toast.LENGTH_SHORT).show();
+            }
+            else if(quizNameInput.getText().toString().length() == 0){
+                Toast.makeText(CreateQuizActivity.this, "You cannot make a quiz with no name.",
+                        Toast.LENGTH_SHORT).show();
             }
             else {
-                HomeScreenActivity.topRef.child(quiz.get_key()).setValue(quiz);
+                Intent quizIntent = new Intent();
+                quiz.setQuestions(questions);
+                quiz.setName(quizNameInput.getText().toString());
+                quiz.setUserID(HomeScreenActivity.userID);
+                setResult(HomeScreenActivity.FINISH_CREATE_QUIZ, quizIntent);
+                if (quiz.get_key() == null){
+                    HomeScreenActivity.topRef.push().setValue(quiz);
+                }
+                else {
+                    HomeScreenActivity.topRef.child(quiz.get_key()).setValue(quiz);
+                }
+                finish();
             }
-            finish();
         });
 
         // instantiate add question button and set it to launch the create question activity
